@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="ITEM"
+            type="com.example.playmusic.models.ITEM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clickPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <View
+            android:id="@+id/viewSupporter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/imageSong" />
+
+        <View
+            android:id="@+id/viewBackGround"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/background_song"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textName" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageSong"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            android:imageURL="@{`https://photo-resize-zmp3.zadn.vn/w94_r1x1_jpeg/` + ITEM.thumbnail}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="4dp" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:includeFontPadding="false"
+            android:paddingTop="8dp"
+            android:text="@{ITEM.name}"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageSong"
+            app:layout_constraintTop_toTopOf="@id/imageSong" />
+
+        <TextView
+            android:id="@+id/textArtists"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:includeFontPadding="false"
+            android:text="@{ITEM.nghesi}"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textName" />
+
+        <TextView
+            android:id="@+id/textPerformer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_regular"
+            android:includeFontPadding="false"
+            android:text='unknown'
+            android:textColor="@color/colorTextSecondary"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textArtists" />
+
+        <TextView
+            android:id="@+id/textID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:includeFontPadding="false"
+            android:text="@{ITEM.id}"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/textName"
+            app:layout_constraintTop_toBottomOf="@id/textPerformer" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
